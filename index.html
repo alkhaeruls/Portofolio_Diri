@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alif Khaerul Siffa | Premium Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Canvas for Particles -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Background Glows -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    <div class="bg-glow glow-3"></div>
+
+    <header class="header glass-panel-header">
+      <div class="container nav-container">
+        <a href="#" class="logo gradient-text">Alif K.S.</a>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button class="mobile-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        <div class="container hero-container">
+          <!-- Kiri: Foto Profil -->
+          <div class="hero-image-wrapper">
+            <!-- PENTING: Ganti 'profile.jpg' dengan nama file foto Anda yang asli -->
+            <img
+              src="profile.jpeg"
+              alt="Alif Khaerul Siffa"
+              class="hero-image"
+            />
+            <div class="image-glow"></div>
+          </div>
+
+          <!-- Kanan: Konten Teks -->
+          <div class="hero-content">
+
+
+            <h1 class="name">
+              Alif Khaerul <span class="gradient-text">Siffa</span>
+            </h1>
+            <h2 class="headline">
+              Menjembatani logika sistem dan desain antarmuka untuk menghasilkan
+              produk digital yang utuh.
+            </h2>
+            <p class="subtitle">
+              Mahasiswa D3 Teknik Informatika dengan fokus pada Full-Stack
+              Development. Saya menggabungkan keahlian pengembangan backend dan
+              pemahaman UI/UX untuk membangun aplikasi web yang fungsional,
+              terukur, dan mudah digunakan.
+            </p>
+            <div class="cta-group">
+              <a href="#projects" class="btn btn-primary">
+                <span class="btn-content">Lihat Project</span>
+              </a>
+              <a href="#contact" class="btn btn-glass">Hubungi Saya</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about section">
+        <div class="container">
+          <h2 class="section-title">
+            Tentang <span class="gradient-text">Saya</span>
+          </h2>
+          <div class="about-content glass-panel">
+            <div class="terminal-header">
+              <div class="dot dot-red"></div>
+              <div class="dot dot-yellow"></div>
+              <div class="dot dot-green"></div>
+            </div>
+            <div class="terminal-body">
+              <p>
+                Saya adalah Mahasiswa D3 Teknik Informatika yang memiliki
+                ketertarikan besar dalam menjembatani kebutuhan teknis dan
+                pengalaman pengguna. Fokus utama saya adalah Full-Stack
+                Development, di mana saya menikmati proses merancang arsitektur
+                backend menggunakan Node.js dan Express, sekaligus memastikan
+                antarmuka yang bersih dan interaktif melalui Next.js. Bagi saya,
+                sebuah aplikasi tidak hanya harus berjalan dengan lancar di
+                belakang layar, tetapi juga harus intuitif dan nyaman digunakan
+                oleh end-user.
+              </p>
+              <p>
+                Selain pengembangan teknis, saya memiliki minat yang kuat pada
+                aspek kepemimpinan dan manajemen produk. Saya senang mengambil
+                inisiatif dalam memastikan sebuah produk dieksekusi dengan baik,
+                mulai dari tahap ideasi hingga rilis. Saya antusias memecahkan
+                masalah yang berkaitan dengan inefisiensi alur kerja, seperti
+                mengubah proses pencatatan manual yang rentan kesalahan menjadi
+                sistem digital yang terotomatisasi dan andal.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skills section">
+        <div class="container">
+          <h2 class="section-title">
+            Keahlian & <span class="gradient-text">Teknologi</span>
+          </h2>
+          <div class="skills-grid">
+            <div class="skill-category glass-panel hover-glow">
+              <h3>Frontend & UI/UX</h3>
+              <ul class="skill-list">
+                <li><span class="skill-dot"></span> React</li>
+                <li><span class="skill-dot"></span> Next.js</li>
+                <li><span class="skill-dot"></span> Tailwind CSS</li>
+                <li><span class="skill-dot"></span> Figma</li>
+              </ul>
+            </div>
+            <div class="skill-category glass-panel hover-glow">
+              <h3>Backend</h3>
+              <ul class="skill-list">
+                <li><span class="skill-dot"></span> Node.js</li>
+                <li><span class="skill-dot"></span> Express</li>
+              </ul>
+            </div>
+            <div class="skill-category glass-panel hover-glow">
+              <h3>Tools</h3>
+              <ul class="skill-list">
+                <li><span class="skill-dot"></span> Git</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects section">
+        <div class="container">
+          <h2 class="section-title">
+            Proyek <span class="gradient-text">Pilihan</span>
+          </h2>
+
+          <div class="project-card glass-panel hover-glow">
+            <div class="terminal-header">
+              <div class="dot dot-red"></div>
+              <div class="dot dot-yellow"></div>
+              <div class="dot dot-green"></div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Sistem Manajemen Perpustakaan</h3>
+              <p class="project-desc">
+                Aplikasi web terotomatisasi untuk mempermudah pelacakan
+                inventaris dan pencatatan peminjaman buku perpustakaan,
+                menggantikan sistem manual yang rentan kesalahan.
+              </p>
+
+              <div class="project-details">
+                <p>
+                  <strong>Fokus Saya:</strong> Merancang logika backend dan
+                  tampilan UI/UX (Full-Stack).
+                </p>
+              </div>
+
+              <div class="tech-stack">
+                <span class="tech-tag glass-tag">Next.js</span>
+                <span class="tech-tag glass-tag">Node.js</span>
+                <span class="tech-tag glass-tag">Express</span>
+              </div>
+
+              <div class="project-links">
+                <a href="#" class="btn btn-small btn-glass"
+                  >GitHub: [Belum diisi]</a
+                >
+                <a href="#" class="btn btn-small btn-primary">
+                  <span class="btn-content">Live Demo: [Belum diisi]</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact section">
+        <div class="container">
+          <h2 class="section-title">
+            Mari <span class="gradient-text">Berkolaborasi</span>
+          </h2>
+          <p class="contact-text">
+            Saya selalu terbuka untuk mendiskusikan peluang kerja sama, diskusi
+            teknis, atau pengembangan produk. Jangan ragu untuk menyapa!
+          </p>
+
+          <div class="contact-links">
+            <a
+              href="mailto:liffxy720@gmail.com"
+              class="contact-item glass-panel hover-glow"
+            >
+              <span class="contact-label">Email</span>
+              <span class="contact-value">liffxy720@gmail.com</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/alif-khaerul-siffa"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-item glass-panel hover-glow"
+            >
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">Alif Khaerul Siffa</span>
+            </a>
+            <a
+              href="https://github.com/extraa18"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-item glass-panel hover-glow"
+            >
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">extraa18</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Alif Khaerul Siffa. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
