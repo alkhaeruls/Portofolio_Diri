@@ -1,22 +1,50 @@
-/* Custom Properties (Variabel Warna - Dark Mode First) */
+/* ==========================================================================
+   PORTFOLIO RETRO-GOLDEN THEME
+   Warna: Merah Crimson, Putih Krem/Warm White, Kuning Keemasan/Amber Gold
+   Estetika: Analog Editorial, Neo-Retro, Vinyl & Tech Archive
+   ========================================================================== */
+
 :root {
-    --bg-main: #0a0a0a;
-    --text-main: #ffffff;
-    --text-muted: #9ca3af;
-    
-    /* Aksen Warna */
-    --primary-color: #3b82f6; /* Neon Blue */
-    --secondary-color: #a855f7; /* Purple */
-    
-    /* Glassmorphism */
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.05);
-    --glass-border-hover: rgba(255, 255, 255, 0.2);
-    
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Palet Warna Utama */
+    --bg-dark: #0a0405;           /* Hitam Beludru / Deep Crimson Black */
+    --bg-surface: #140709;        /* Warna Permukaan Kartu */
+    --bg-surface-elevated: #1e0b0e;
+
+    /* Aksen Emas & Kuning Keemasan */
+    --gold-primary: #f59e0b;       /* Amber Gold Inti */
+    --gold-light: #fde68a;         /* Emas Cerah Berpijar */
+    --gold-dark: #b45309;          /* Emas Tembaga Klasik */
+    --gold-glow: rgba(245, 158, 11, 0.45);
+
+    /* Aksen Merah Crimson / Ruby */
+    --red-primary: #dc2626;        /* Merah Crimson Utama */
+    --red-light: #ef4444;          /* Merah Neon Terang */
+    --red-dark: #7f1d1d;           /* Merah Marun Tua */
+    --red-glow: rgba(220, 38, 38, 0.4);
+
+    /* Teks & Kontras */
+    --text-white: #fffdf9;         /* Putih Hangat / Warm Cream */
+    --text-cream: #f4ede2;         /* Krem Estetik */
+    --text-muted: #bda8a9;         /* Muted Rose Grey */
+    --text-dim: #7f6a6c;
+
+    /* Garis & Perbatasan Kaca Analog */
+    --border-gold: rgba(245, 158, 11, 0.3);
+    --border-gold-bright: rgba(253, 230, 138, 0.6);
+    --border-red: rgba(220, 38, 38, 0.35);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+
+    /* Tipografi */
+    --font-heading: 'Syne', sans-serif;
+    --font-serif: 'Cinzel', serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+
+    /* Transisi */
+    --ease-retro: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Reset & Base Styles */
+/* Reset & Pengaturan Dasar */
 * {
     margin: 0;
     padding: 0;
@@ -25,536 +53,1206 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: var(--bg-dark);
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text-muted);
-    line-height: 1.8;
-    background-color: var(--bg-main);
-    overflow-x: hidden; /* Mencegah horizontal scroll dari elemen glow */
-}
-
-.container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-}
-
-ul {
-    list-style: none;
-}
-
-/* Utilities (Sesuai Pedoman Premium) */
-.gradient-text {
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.glass-panel {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-}
-
-.hover-glow {
-    transition: var(--transition);
-}
-
-.hover-glow:hover {
-    transform: scale(1.02) translateY(-5px);
-    border-color: var(--glass-border-hover);
-    box-shadow: 0 10px 40px -10px rgba(168, 85, 247, 0.25);
-}
-
-/* Background Glows Dekoratif */
-.bg-glow {
-    position: absolute; /* diubah dari fixed agar ikut scroll, atau biarkan fixed untuk efek stay */
-    border-radius: 50%;
-    filter: blur(120px);
-    z-index: -1;
-    opacity: 0.15;
-    pointer-events: none;
-}
-.glow-1 {
-    top: -10%;
-    left: -10%;
-    width: 600px;
-    height: 600px;
-    background: var(--primary-color);
-}
-.glow-2 {
-    top: 50%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-    background: var(--secondary-color);
-}
-.glow-3 {
-    bottom: -10%;
-    left: 20%;
-    width: 400px;
-    height: 400px;
-    background: var(--primary-color);
-    opacity: 0.1;
-}
-
-/* Header & Navigation */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 1.2rem 0;
-    transition: var(--transition);
-}
-.glass-panel-header {
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
-
-.nav-list {
-    display: flex;
-    gap: 2.5rem;
-}
-
-.nav-list a {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-muted);
-}
-
-.nav-list a:hover {
-    color: var(--text-main);
-    text-shadow: 0 0 10px rgba(255,255,255,0.3);
-}
-
-/* Mobile Menu Toggle */
-.mobile-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-.mobile-toggle span {
-    width: 25px;
-    height: 2px;
-    background-color: var(--text-main);
-    transition: var(--transition);
-}
-
-/* Sections General */
-.section {
-    padding: 8rem 0;
+body.retro-theme {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-cream);
+    line-height: 1.75;
+    overflow-x: hidden;
     position: relative;
+    selection-background-color: var(--red-primary);
+    selection-color: var(--text-white);
 }
 
-.section-title {
-    font-size: 3.5rem; /* text-5xl ke atas */
-    font-weight: 800; /* font-extrabold */
-    letter-spacing: -0.03em;
-    margin-bottom: 3.5rem;
-    color: var(--text-main);
+::selection {
+    background: var(--red-primary);
+    color: var(--gold-light);
 }
 
-/* Buttons */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.875rem 2rem;
-    border-radius: 9999px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition);
-}
-.btn-small {
-    padding: 0.5rem 1.25rem;
-    font-size: 0.875rem;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    border: none;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-}
-.btn-primary:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
-}
-
-.btn-glass {
-    background: var(--glass-bg);
-    color: var(--text-main);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-}
-.btn-glass:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--glass-border-hover);
-    transform: scale(1.05);
-}
-
-/* Status Badge (Ping Animation) */
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--text-main);
-    font-size: 0.875rem;
-    margin-bottom: 2.5rem;
-    backdrop-filter: blur(10px);
-}
-.ping-dot {
-    position: relative;
-    display: flex;
-    width: 10px;
-    height: 10px;
-}
-.ping {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #22c55e;
-    border-radius: 50%;
-    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-    opacity: 0.7;
-}
-.dot-core {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: #22c55e;
-    border-radius: 50%;
-}
-@keyframes ping {
-    75%, 100% { transform: scale(2.5); opacity: 0; }
-}
-
-/* Hero Section */
-.hero {
-    padding-top: 12rem;
-    padding-bottom: 8rem;
-    min-height: 100vh;
-    display: flex;
-    align-items: center; /* Rata tengah secara vertikal */
-    position: relative;
-}
-
-.hero-container {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr; /* 1 bagian untuk foto, 1.5 bagian untuk teks */
-    gap: 5rem;
-    align-items: center;
-}
-
-/* Hero Image Box */
-.hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 350px; /* Disesuaikan agar lingkaran lebih proporsional */
-    margin: 0 auto;
-}
-
-.hero-image {
-    width: 100%;
-    aspect-ratio: 1/1; /* Agar foto menjadi persegi/presisi */
-    object-fit: cover;
-    border-radius: 50%; /* Mengubah foto menjadi lingkaran penuh (circle) */
-    position: relative;
-    z-index: 2;
-    border: 1px solid var(--glass-border);
-    background-color: var(--glass-bg);
-    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-}
-
-/* Efek Glow di belakang foto */
-.image-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 110%;
-    height: 110%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    filter: blur(40px);
-    opacity: 0.5;
-    z-index: 1;
-    border-radius: 50%;
-    animation: pulseGlow 4s infinite alternate;
-}
-
-@keyframes pulseGlow {
-    0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.95); }
-    100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); }
-}
-
-.name {
-    font-size: 5rem; /* text-7xl ke atas */
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    color: var(--text-main);
-}
-
-.headline {
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--text-main);
-    margin-bottom: 2rem;
-    max-width: 800px;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
-}
-
-.subtitle {
-    font-size: 1.125rem;
-    color: var(--text-muted);
-    margin-bottom: 3.5rem;
-    max-width: 700px;
-}
-
-.cta-group {
-    display: flex;
-    gap: 1.5rem;
-}
-
-/* Terminal / Mockup Window Decorative Elements */
-.terminal-header {
-    display: flex;
-    gap: 8px;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--glass-border);
-    margin-bottom: 1.5rem;
-}
-.dot { width: 12px; height: 12px; border-radius: 50%; }
-.dot-red { background: #ef4444; }
-.dot-yellow { background: #eab308; }
-.dot-green { background: #22c55e; }
-
-/* About Section */
-.about-content {
-    padding: 3rem;
-}
-.about-content p {
-    margin-bottom: 1.5rem;
-    font-size: 1.125rem;
-}
-
-/* Skills Section */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.skill-category {
-    padding: 2.5rem;
-}
-
-.skill-category h3 {
-    margin-bottom: 1.5rem;
-    color: var(--text-main);
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.skill-list li {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    font-size: 1.1rem;
-}
-
-.skill-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    margin-right: 12px;
-    box-shadow: 0 0 10px var(--primary-color);
-}
-
-/* Projects Section */
-.project-card {
-    padding: 3rem;
-    margin-bottom: 2rem;
-}
-
-.project-title {
-    font-size: 2rem;
-    color: var(--text-main);
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.project-desc {
-    font-size: 1.125rem;
-    margin-bottom: 1.5rem;
-}
-
-.project-details strong {
-    color: var(--text-main);
-}
-
-.tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-}
-
-.glass-tag {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text-main);
-    border: 1px solid var(--glass-border);
-    padding: 0.35rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.project-links {
-    display: flex;
-    gap: 1.25rem;
-}
-
-/* Contact Section */
-.contact-text {
-    max-width: 600px;
-    margin-bottom: 3rem;
-    font-size: 1.125rem;
-}
-
-.contact-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.contact-item {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-}
-
-.contact-label {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    margin-bottom: 0.5rem;
-}
-
-.contact-value {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--text-main);
-}
-
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 3rem 0;
-    border-top: 1px solid var(--glass-border);
-    background: rgba(10, 10, 10, 0.5);
-    backdrop-filter: blur(10px);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .mobile-toggle { display: flex; }
-    
-    .nav-list {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        padding: 2rem;
-        gap: 1.5rem;
-        border-bottom: 1px solid var(--glass-border);
-    }
-    
-    .nav-list.active { display: flex; }
-    
-    .name { font-size: 3.5rem; }
-    .headline { font-size: 1.75rem; }
-    .section-title { font-size: 2.5rem; }
-    
-    .cta-group { flex-direction: column; }
-    .btn { width: 100%; }
-    
-    .hero { padding-top: 8rem; }
-    
-    .hero-container {
-        grid-template-columns: 1fr; /* Tumpuk ke bawah di layar kecil */
-        text-align: center;
-        gap: 3rem;
-    }
-
-    .hero-image-wrapper {
-        max-width: 250px; /* Ukuran lingkaran lebih proporsional di HP */
-    }
-
-    .status-badge {
-        margin: 0 auto 2.5rem auto; /* Pusatkan badge status */
-    }
-
-    .cta-group { flex-direction: column; justify-content: center; }
-    .btn { width: 100%; }
-    
-    .about-content, .project-card, .skill-category {
-        padding: 1.5rem;
-    }
-}
-
-
-/* Particle Canvas */
+/* Partikel Canvas Latar Belakang */
 #particleCanvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -2; /* Berada di belakang elemen lain, tapi di atas background hitam */
-    pointer-events: none; /* Agar tidak menghalangi klik pada tombol/link */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Efek Grain Analog & Ambient Orbs */
+.retro-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.ambient-glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.18;
+}
+
+.glow-crimson {
+    top: -15%;
+    left: -10%;
+    width: 55vw;
+    height: 55vw;
+    background: radial-gradient(circle, var(--red-primary), transparent 70%);
+}
+
+.glow-gold {
+    bottom: -15%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, var(--gold-primary), transparent 70%);
+}
+
+.glow-center {
+    top: 40%;
+    left: 30%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, var(--red-dark), transparent 80%);
+    opacity: 0.12;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Utility Helpers */
+.font-syne { font-family: var(--font-heading); }
+.font-cinzel { font-family: var(--font-serif); }
+.font-space-mono { font-family: var(--font-mono); }
+
+.text-gold { color: var(--gold-primary); }
+.text-crimson { color: var(--red-light); }
+
+.gold-gradient-text {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 60%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(10, 4, 5, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-gold);
+    padding: 1.1rem 0;
+    transition: all 0.3s ease;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--text-white);
+}
+
+.logo-emblem {
+    color: var(--gold-primary);
+    font-size: 1.3rem;
+    text-shadow: 0 0 10px var(--gold-glow);
+    animation: spinSlow 12s linear infinite;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--text-white);
+}
+
+.logo-badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    background: rgba(220, 38, 38, 0.2);
+    border: 1px solid var(--border-red);
+    color: var(--red-light);
+    border-radius: 4px;
+    letter-spacing: 0.08em;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    position: relative;
+    padding-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-num {
+    font-family: var(--font-mono);
+    color: var(--gold-primary);
+    font-size: 0.75rem;
+    margin-right: 0.2rem;
+}
+
+.nav-item:hover {
+    color: var(--text-white);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-primary), var(--red-primary));
+    transition: width 0.3s var(--ease-retro);
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-toggle span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--gold-primary);
+    transition: 0.3s;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+    padding-top: 11rem;
+    padding-bottom: 7rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.55fr;
+    gap: 4.5rem;
+    align-items: center;
+}
+
+/* Sisi Kiri: Foto Retro Circle dengan Vinyl Rings */
+.hero-portrait-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.retro-badge-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px dashed var(--border-gold);
+    border-radius: 999px;
+    margin-bottom: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+}
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--red-light);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--red-light);
+}
+
+.portrait-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+}
+
+/* Cincin Vinyl Emas & Merah di sekeliling foto */
+.vinyl-ring {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.ring-outer {
+    top: -16px;
+    left: -16px;
+    right: -16px;
+    bottom: -16px;
+    border: 2px dashed rgba(245, 158, 11, 0.4);
+    animation: rotateSlow 24s linear infinite;
+}
+
+.ring-middle {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 1px solid var(--red-primary);
+    opacity: 0.7;
+}
+
+.ring-glow {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 105%;
+    height: 105%;
+    background: radial-gradient(circle, var(--red-glow) 0%, var(--gold-glow) 70%, transparent 100%);
+    filter: blur(25px);
+    z-index: 0;
+    opacity: 0.6;
+}
+
+.image-crop-circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+    border: 3px solid var(--gold-primary);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8), 0 0 25px var(--gold-glow);
+    background-color: var(--bg-surface);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease-retro);
+}
+
+.portrait-container:hover .profile-img {
+    transform: scale(1.06);
+}
+
+/* Stempel Retro Bulat di Sudut */
+.retro-stamp {
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--red-primary), var(--red-dark));
+    border: 2px solid var(--gold-light);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-light);
+    z-index: 3;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6), 0 0 15px var(--red-glow);
+    transform: rotate(12deg);
+    transition: transform 0.3s ease;
+}
+
+.portrait-container:hover .retro-stamp {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.stamp-star {
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--gold-light);
+}
+
+.stamp-title {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.stamp-year {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    color: var(--text-white);
+    opacity: 0.8;
+}
+
+/* Sisi Kanan: Konten Teks */
+.ticker-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(220, 38, 38, 0.12);
+    border: 1px solid var(--border-red);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gold-light);
+    letter-spacing: 0.07em;
+    margin-bottom: 1.5rem;
+}
+
+.tag-icon { color: var(--gold-primary); }
+
+.hero-title {
+    margin-bottom: 1.25rem;
+}
+
+.title-sub {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    color: var(--gold-primary);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.title-name {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--text-white);
+}
+
+.hero-headline {
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--text-cream);
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--red-primary);
+    padding-left: 1.25rem;
+}
+
+.hero-summary {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 620px;
+}
+
+.hero-action-group {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+/* Tombol Retro Emas & Merah */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-retro);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gold-retro {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+    color: #1a080a;
+    border: 1px solid var(--gold-light);
+    box-shadow: 4px 4px 0px var(--red-dark), 0 0 25px var(--gold-glow);
+}
+
+.btn-gold-retro:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--red-primary), 0 0 35px var(--gold-glow);
+    color: #000;
+}
+
+.btn-crimson-outline {
+    background: rgba(20, 7, 9, 0.7);
+    color: var(--text-white);
+    border: 1px solid var(--border-gold);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.6);
+}
+
+.btn-crimson-outline:hover {
+    border-color: var(--gold-primary);
+    background: rgba(220, 38, 38, 0.15);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--border-gold);
+    color: var(--gold-light);
+}
+
+.btn-bullet { color: var(--gold-primary); }
+
+/* Strip Spesifikasi Retro */
+.retro-spec-strip {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px dashed var(--border-gold);
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.spec-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--gold-primary);
+    letter-spacing: 0.08em;
+}
+
+.spec-val {
+    font-size: 0.85rem;
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+.spec-divider {
+    color: var(--border-gold);
+    font-family: var(--font-mono);
+}
+
+/* ==========================================================================
+   SEKSI UMUM & HEADER SEKSI
+   ========================================================================== */
+.section-container {
+    padding: 7rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header-retro {
+    margin-bottom: 3.5rem;
+}
+
+.header-chapter {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--red-light);
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.section-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-white);
+    line-height: 1.15;
+}
+
+.retro-line-deco {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.retro-line-deco::before {
+    content: '';
+    height: 1px;
+    width: 140px;
+    background: linear-gradient(90deg, var(--gold-primary), var(--red-primary), transparent);
+}
+
+.line-spark {
+    color: var(--gold-primary);
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+}
+
+/* Kartu Retro Box dengan Sudut Ornamen */
+.retro-box-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-gold);
+    border-radius: 8px;
+    position: relative;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.card-corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--gold-primary);
+    border-style: solid;
+}
+
+.corner-tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.corner-tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+.corner-bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+.corner-br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+/* ==========================================================================
+   ABOUT SECTION
+   ========================================================================== */
+.retro-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.file-code {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gold-primary);
+    letter-spacing: 0.08em;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-gold { background: var(--gold-primary); box-shadow: 0 0 8px var(--gold-glow); }
+.dot-crimson { background: var(--red-primary); box-shadow: 0 0 8px var(--red-glow); }
+.dot-white { background: var(--text-white); }
+
+.about-paragraphs p {
+    font-size: 1.12rem;
+    color: var(--text-cream);
+    margin-bottom: 1.5rem;
+    line-height: 1.85;
+}
+
+.badge-inline {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: rgba(220, 38, 38, 0.15);
+    color: var(--gold-light);
+    border: 1px solid var(--border-red);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+}
+
+.about-manifesto {
+    margin-top: 2.5rem;
+    padding: 1.75rem 2rem;
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.12), rgba(245, 158, 11, 0.08));
+    border-left: 4px solid var(--gold-primary);
+    border-radius: 0 8px 8px 0;
+}
+
+.manifesto-quote {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+}
+
+/* ==========================================================================
+   SKILLS SECTION (KARTU RETRO ANALOG DECK)
+   ========================================================================== */
+.skills-retro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.skill-retro-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-gold);
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: all 0.35s var(--ease-retro);
+}
+
+.skill-retro-card:hover {
+    transform: translateY(-6px);
+    background: var(--bg-surface-elevated);
+    border-color: var(--gold-light);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px var(--gold-glow);
+}
+
+.card-bracket {
+    position: absolute;
+    color: var(--gold-primary);
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    line-height: 1;
+    opacity: 0.6;
+}
+
+.bracket-tl { top: 8px; left: 8px; }
+.bracket-tr { top: 8px; right: 8px; }
+.bracket-bl { bottom: 8px; left: 8px; }
+.bracket-br { bottom: 8px; right: 8px; }
+
+.skill-card-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--red-light);
+    border: 1px solid var(--border-red);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.08em;
+}
+
+.gold-badge {
+    color: var(--gold-light);
+    border-color: var(--border-gold);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.skill-category-title {
+    font-size: 1.7rem;
+    color: var(--text-white);
+    margin-bottom: 0.4rem;
+}
+
+.skill-category-sub {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.skill-pill-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.skill-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.8rem 1.1rem;
+    background: rgba(10, 4, 5, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+.skill-pill:hover {
+    border-color: var(--gold-primary);
+    background: rgba(245, 158, 11, 0.08);
+    transform: translateX(4px);
+}
+
+.pill-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.pill-dot.red { background: var(--red-primary); box-shadow: 0 0 8px var(--red-glow); }
+.pill-dot.gold { background: var(--gold-primary); box-shadow: 0 0 8px var(--gold-glow); }
+
+.pill-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-cream);
+}
+
+/* ==========================================================================
+   PROJECTS SECTION (TIKET ANALOG SHOWCASE)
+   ========================================================================== */
+.retro-project-showcase {
+    background: var(--bg-surface);
+    border: 2px solid var(--border-gold);
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(220, 38, 38, 0.2);
+    overflow: hidden;
+}
+
+.project-ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2.5rem;
+    background: linear-gradient(90deg, #1f0b0e, #140709);
+    border-bottom: 1px dashed var(--border-gold);
+}
+
+.ticket-stamp {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--gold-primary);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.ticket-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gold-light);
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red-light);
+    box-shadow: 0 0 10px var(--red-light);
+    animation: pulseRed 2s infinite;
+}
+
+.project-body-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 3.5rem;
+    padding: 3rem;
+}
+
+.project-name {
+    font-size: 2.2rem;
+    color: var(--text-white);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.project-tagline {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.project-meta-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(10, 4, 5, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+}
+
+.meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--gold-primary);
+    letter-spacing: 0.08em;
+}
+
+.meta-val {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.project-links-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btn-retro-small {
+    padding: 0.65rem 1.4rem;
+    font-size: 0.85rem;
+}
+
+.btn-crimson-bg {
+    background: var(--red-primary);
+    color: var(--text-white);
+    border: 1px solid var(--red-light);
+    box-shadow: 3px 3px 0px var(--red-dark);
+}
+
+.btn-crimson-bg:hover {
+    background: var(--red-light);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px var(--gold-primary);
+}
+
+.btn-disabled {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-dim);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    cursor: not-allowed;
+}
+
+/* Kolom Detail Masalah & Solusi */
+.project-details-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.retro-info-panel {
+    padding: 1.5rem;
+    background: rgba(10, 4, 5, 0.7);
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+}
+
+.panel-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.panel-problem { border-left: 3px solid var(--red-primary); }
+.panel-problem .panel-tag { color: var(--red-light); }
+
+.panel-solution { border-left: 3px solid var(--gold-primary); }
+.panel-solution .panel-tag { color: var(--gold-light); }
+
+.panel-process { border-left: 3px solid var(--text-white); }
+.panel-process .panel-tag { color: var(--text-white); }
+
+.retro-info-panel p {
+    font-size: 0.95rem;
+    color: var(--text-cream);
+    line-height: 1.7;
+}
+
+.ticket-footer-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    background: #0f0506;
+    border-top: 1px dashed var(--border-gold);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.strip-dots {
+    color: var(--gold-primary);
+    letter-spacing: 0.2em;
+}
+
+/* ==========================================================================
+   CONTACT SECTION
+   ========================================================================== */
+.contact-card-retro {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-gold);
+    border-radius: 12px;
+    padding: 3.5rem;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+}
+
+.contact-intro {
+    max-width: 720px;
+    margin-bottom: 3rem;
+}
+
+.contact-tagline {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+}
+
+.contact-desc {
+    font-size: 1.1rem;
+    color: var(--text-cream);
+}
+
+.contact-directory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+}
+
+.directory-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: rgba(10, 4, 5, 0.8);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s var(--ease-retro);
+}
+
+.directory-card:hover {
+    border-color: var(--gold-primary);
+    transform: translateY(-4px);
+    background: rgba(245, 158, 11, 0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px var(--gold-glow);
+}
+
+.dir-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--red-primary), var(--red-dark));
+    color: var(--gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    box-shadow: 0 0 15px var(--red-glow);
+}
+
+.dir-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.dir-type {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+}
+
+.dir-val {
+    font-size: 0.95rem;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.dir-arrow {
+    font-size: 1.2rem;
+    color: var(--gold-primary);
+    transition: transform 0.3s ease;
+}
+
+.directory-card:hover .dir-arrow {
+    transform: translate(3px, -3px);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.retro-footer {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border-gold);
+    background: #090304;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+}
+
+.footer-symbol { color: var(--gold-primary); }
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulseRed {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLET & SMARTPHONE)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3.5rem;
+    }
+
+    .hero-headline {
+        border-left: none;
+        padding-left: 0;
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .hero-summary {
+        margin: 0 auto 2.5rem auto;
+    }
+
+    .hero-action-group {
+        justify-content: center;
+    }
+
+    .retro-spec-strip {
+        justify-content: center;
+    }
+
+    .project-body-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .title-name {
+        font-size: 3.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(14, 5, 7, 0.98);
+        border-bottom: 1px solid var(--border-gold);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        backdrop-filter: blur(20px);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .portrait-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .retro-stamp {
+        width: 80px;
+        height: 80px;
+        bottom: -8px;
+        right: -8px;
+    }
+
+    .stamp-title { font-size: 0.5rem; }
+    .stamp-year { font-size: 0.45rem; }
+
+    .title-name {
+        font-size: 2.6rem;
+    }
+
+    .section-heading {
+        font-size: 2.2rem;
+    }
+
+    .retro-box-card, .project-body-grid, .contact-card-retro {
+        padding: 1.75rem;
+    }
+
+    .hero-action-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .retro-spec-strip {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .spec-divider { display: none; }
 }

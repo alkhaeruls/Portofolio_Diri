@@ -1,251 +1,429 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alif Khaerul Siffa | Premium Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- Canvas for Particles -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alif Khaerul Siffa | Retro-Gold Portfolio</title>
+    
+    <!-- Google Fonts: Syne (Retro Bold Display), Cinzel (Majestic Gold), Space Mono (Retro Tech), Plus Jakarta Sans (Clean Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="retro-theme">
+
+    <!-- Interactive Canvas untuk Partikel Cahaya Emas & Pijar Merah -->
     <canvas id="particleCanvas"></canvas>
 
-    <!-- Background Glows -->
-    <div class="bg-glow glow-1"></div>
-    <div class="bg-glow glow-2"></div>
-    <div class="bg-glow glow-3"></div>
+    <!-- Retro Analog Grain & Ambient Light Orbs -->
+    <div class="retro-grain"></div>
+    <div class="ambient-glow glow-crimson"></div>
+    <div class="ambient-glow glow-gold"></div>
+    <div class="ambient-glow glow-center"></div>
 
-    <header class="header glass-panel-header">
-      <div class="container nav-container">
-        <a href="#" class="logo gradient-text">Alif K.S.</a>
-        <nav class="nav">
-          <ul class="nav-list">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <button class="mobile-toggle" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </nav>
-      </div>
+    <!-- Retro Header & Navigation -->
+    <header class="header">
+        <div class="container nav-wrapper">
+            <a href="#" class="brand-logo">
+                <span class="logo-emblem">✦</span>
+                <span class="logo-text">ALIF K.S.</span>
+                <span class="logo-badge">VOL. 01</span>
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-item"><span class="nav-num">01.</span> Tentang</a></li>
+                    <li><a href="#skills" class="nav-item"><span class="nav-num">02.</span> Keahlian</a></li>
+                    <li><a href="#projects" class="nav-item"><span class="nav-num">03.</span> Karya</a></li>
+                    <li><a href="#contact" class="nav-item"><span class="nav-num">04.</span> Kontak</a></li>
+                </ul>
+
+                <button class="mobile-toggle" aria-label="Buka Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
     </header>
 
     <main>
-      <!-- Hero Section -->
-      <section id="hero" class="hero">
-        <div class="container hero-container">
-          <!-- Kiri: Foto Profil -->
-          <div class="hero-image-wrapper">
-            <!-- PENTING: Ganti 'profile.jpg' dengan nama file foto Anda yang asli -->
-            <img
-              src="profile.jpeg"
-              alt="Alif Khaerul Siffa"
-              class="hero-image"
-            />
-            <div class="image-glow"></div>
-          </div>
+        <!-- ================= HERO SECTION ================= -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-grid">
+                
+                <!-- Sisi Kiri: Foto Profil Retro Circle -->
+                <div class="hero-portrait-col">
+                    <div class="retro-badge-top">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">D3 TEKNIK INFORMATIKA</span>
+                    </div>
 
-          <!-- Kanan: Konten Teks -->
-          <div class="hero-content">
+                    <div class="portrait-container">
+                        <!-- Ornamen Lingkaran Emas & Merah Vinyl -->
+                        <div class="vinyl-ring ring-outer"></div>
+                        <div class="vinyl-ring ring-middle"></div>
+                        <div class="vinyl-ring ring-glow"></div>
 
+                        <!-- Gambar Foto Asli -->
+                        <div class="image-crop-circle">
+                            <img src="profile.jpeg" alt="Alif Khaerul Siffa" class="profile-img">
+                        </div>
 
-            <h1 class="name">
-              Alif Khaerul <span class="gradient-text">Siffa</span>
-            </h1>
-            <h2 class="headline">
-              Menjembatani logika sistem dan desain antarmuka untuk menghasilkan
-              produk digital yang utuh.
-            </h2>
-            <p class="subtitle">
-              Mahasiswa D3 Teknik Informatika dengan fokus pada Full-Stack
-              Development. Saya menggabungkan keahlian pengembangan backend dan
-              pemahaman UI/UX untuk membangun aplikasi web yang fungsional,
-              terukur, dan mudah digunakan.
-            </p>
-            <div class="cta-group">
-              <a href="#projects" class="btn btn-primary">
-                <span class="btn-content">Lihat Project</span>
-              </a>
-              <a href="#contact" class="btn btn-glass">Hubungi Saya</a>
+                        <!-- Badge Stempel Retro Melingkar -->
+                        <div class="retro-stamp">
+                            <span class="stamp-star">★</span>
+                            <span class="stamp-title">DEV // LEAD</span>
+                            <span class="stamp-year">EST. 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sisi Kanan: Teks & Headline -->
+                <div class="hero-content-col">
+                    <div class="ticker-tag">
+                        <span class="tag-icon">⚡</span>
+                        <span class="tag-text">FULL-STACK &bull; UI/UX &bull; TECH LEAD INITIATIVE</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="title-sub">Halo, saya</span>
+                        <span class="title-name font-syne">Alif Khaerul <span class="gold-gradient-text">Siffa</span></span>
+                    </h1>
+
+                    <h2 class="hero-headline">
+                        Menjembatani logika sistem dan desain antarmuka untuk menghasilkan produk digital yang utuh.
+                    </h2>
+
+                    <p class="hero-summary">
+                        Mahasiswa D3 Teknik Informatika yang berfokus pada <strong class="text-gold">Full-Stack Development</strong>. Saya menggabungkan keandalan arsitektur backend dengan estetika antarmuka UI/UX yang humanis demi menghadirkan sistem web yang presisi, tangguh, dan bernilai guna tinggi.
+                    </p>
+
+                    <div class="hero-action-group">
+                        <a href="#projects" class="btn btn-gold-retro">
+                            <span class="btn-text">Jelajahi Proyek</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                        <a href="#contact" class="btn btn-crimson-outline">
+                            <span class="btn-text">Hubungi Saya</span>
+                            <span class="btn-bullet">✦</span>
+                        </a>
+                    </div>
+
+                    <!-- Mini Spec Bar -->
+                    <div class="retro-spec-strip">
+                        <div class="spec-item">
+                            <span class="spec-label">CORE BACKEND</span>
+                            <span class="spec-val">Node.js &bull; Express</span>
+                        </div>
+                        <div class="spec-divider">/</div>
+                        <div class="spec-item">
+                            <span class="spec-label">MODERN FRONTEND</span>
+                            <span class="spec-val">Next.js &bull; React &bull; Tailwind</span>
+                        </div>
+                        <div class="spec-divider">/</div>
+                        <div class="spec-item">
+                            <span class="spec-label">DESIGN CRAFT</span>
+                            <span class="spec-val">UI/UX (Figma)</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- About Section -->
-      <section id="about" class="about section">
-        <div class="container">
-          <h2 class="section-title">
-            Tentang <span class="gradient-text">Saya</span>
-          </h2>
-          <div class="about-content glass-panel">
-            <div class="terminal-header">
-              <div class="dot dot-red"></div>
-              <div class="dot dot-yellow"></div>
-              <div class="dot dot-green"></div>
+
+        <!-- ================= ABOUT SECTION ================= -->
+        <section id="about" class="section-container">
+            <div class="container">
+                <div class="section-header-retro">
+                    <span class="header-chapter">[ ARSIP 01 ]</span>
+                    <h2 class="section-heading font-syne">Tentang <span class="gold-gradient-text">Saya</span></h2>
+                    <div class="retro-line-deco"><span class="line-spark">✦</span></div>
+                </div>
+
+                <div class="retro-box-card about-box">
+                    <div class="card-corner corner-tl"></div>
+                    <div class="card-corner corner-tr"></div>
+                    <div class="card-corner corner-bl"></div>
+                    <div class="card-corner corner-br"></div>
+
+                    <div class="retro-card-header">
+                        <span class="file-code">DOCUMENT_REF: BIO_ALIF_KH.TXT</span>
+                        <div class="terminal-dots">
+                            <span class="dot-gold"></span>
+                            <span class="dot-crimson"></span>
+                            <span class="dot-white"></span>
+                        </div>
+                    </div>
+
+                    <div class="about-paragraphs">
+                        <p>
+                            Saya adalah Mahasiswa D3 Teknik Informatika yang memiliki ketertarikan besar dalam menjembatani kebutuhan teknis dan pengalaman pengguna. Fokus utama saya adalah <strong class="text-gold">Full-Stack Development</strong>, di mana saya menikmati proses merancang arsitektur backend menggunakan <span class="badge-inline">Node.js</span> dan <span class="badge-inline">Express</span>, sekaligus memastikan antarmuka yang bersih dan interaktif melalui <span class="badge-inline">Next.js</span>. Bagi saya, sebuah aplikasi tidak hanya harus berjalan dengan lancar di belakang layar, tetapi juga harus intuitif dan nyaman digunakan oleh <em>end-user</em>.
+                        </p>
+                        <p>
+                            Selain pengembangan teknis, saya memiliki minat yang kuat pada aspek <strong class="text-gold">kepemimpinan (*leadership*) dan manajemen produk</strong>. Saya senang mengambil inisiatif dalam memastikan sebuah produk dieksekusi dengan baik, mulai dari tahap ideasi hingga rilis. Saya antusias memecahkan masalah yang berkaitan dengan inefisiensi alur kerja, seperti mengubah proses pencatatan manual yang rentan kesalahan menjadi sistem digital yang terotomatisasi dan andal.
+                        </p>
+                    </div>
+
+                    <div class="about-manifesto">
+                        <div class="manifesto-quote font-cinzel">
+                            "Menghubungkan ketangguhan komputasi backend dengan sentuhan estetika antarmuka yang membekas."
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="terminal-body">
-              <p>
-                Saya adalah Mahasiswa D3 Teknik Informatika yang memiliki
-                ketertarikan besar dalam menjembatani kebutuhan teknis dan
-                pengalaman pengguna. Fokus utama saya adalah Full-Stack
-                Development, di mana saya menikmati proses merancang arsitektur
-                backend menggunakan Node.js dan Express, sekaligus memastikan
-                antarmuka yang bersih dan interaktif melalui Next.js. Bagi saya,
-                sebuah aplikasi tidak hanya harus berjalan dengan lancar di
-                belakang layar, tetapi juga harus intuitif dan nyaman digunakan
-                oleh end-user.
-              </p>
-              <p>
-                Selain pengembangan teknis, saya memiliki minat yang kuat pada
-                aspek kepemimpinan dan manajemen produk. Saya senang mengambil
-                inisiatif dalam memastikan sebuah produk dieksekusi dengan baik,
-                mulai dari tahap ideasi hingga rilis. Saya antusias memecahkan
-                masalah yang berkaitan dengan inefisiensi alur kerja, seperti
-                mengubah proses pencatatan manual yang rentan kesalahan menjadi
-                sistem digital yang terotomatisasi dan andal.
-              </p>
+        </section>
+
+
+        <!-- ================= SKILLS SECTION ================= -->
+        <section id="skills" class="section-container">
+            <div class="container">
+                <div class="section-header-retro">
+                    <span class="header-chapter">[ ARSIP 02 ]</span>
+                    <h2 class="section-heading font-syne">Gudang <span class="gold-gradient-text">Keahlian</span></h2>
+                    <div class="retro-line-deco"><span class="line-spark">✦</span></div>
+                </div>
+
+                <div class="skills-retro-grid">
+                    
+                    <!-- Kartu 1: Frontend & UI/UX -->
+                    <div class="skill-retro-card">
+                        <div class="card-bracket bracket-tl">┌</div>
+                        <div class="card-bracket bracket-tr">┐</div>
+                        <div class="card-bracket bracket-bl">└</div>
+                        <div class="card-bracket bracket-br">┘</div>
+
+                        <div class="skill-card-badge">DECK A</div>
+                        <h3 class="skill-category-title font-syne">Frontend &amp; UI/UX</h3>
+                        <p class="skill-category-sub">Interaktivitas, Desain Sistem &amp; Estetika Responsif</p>
+
+                        <div class="skill-pill-container">
+                            <div class="skill-pill">
+                                <span class="pill-dot red"></span>
+                                <span class="pill-name">React</span>
+                            </div>
+                            <div class="skill-pill">
+                                <span class="pill-dot gold"></span>
+                                <span class="pill-name">Next.js</span>
+                            </div>
+                            <div class="skill-pill">
+                                <span class="pill-dot red"></span>
+                                <span class="pill-name">Tailwind CSS</span>
+                            </div>
+                            <div class="skill-pill">
+                                <span class="pill-dot gold"></span>
+                                <span class="pill-name">UI/UX Design (Figma)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kartu 2: Backend -->
+                    <div class="skill-retro-card highlighted-card">
+                        <div class="card-bracket bracket-tl">┌</div>
+                        <div class="card-bracket bracket-tr">┐</div>
+                        <div class="card-bracket bracket-bl">└</div>
+                        <div class="card-bracket bracket-br">┘</div>
+
+                        <div class="skill-card-badge gold-badge">DECK B &bull; CORE</div>
+                        <h3 class="skill-category-title font-syne">Backend Engine</h3>
+                        <p class="skill-category-sub">Arsitektur Logika, API &amp; Pemrosesan Data</p>
+
+                        <div class="skill-pill-container">
+                            <div class="skill-pill">
+                                <span class="pill-dot gold"></span>
+                                <span class="pill-name">Node.js</span>
+                            </div>
+                            <div class="skill-pill">
+                                <span class="pill-dot red"></span>
+                                <span class="pill-name">Express</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kartu 3: Tools & Alur Kerja -->
+                    <div class="skill-retro-card">
+                        <div class="card-bracket bracket-tl">┌</div>
+                        <div class="card-bracket bracket-tr">┐</div>
+                        <div class="card-bracket bracket-bl">└</div>
+                        <div class="card-bracket bracket-br">┘</div>
+
+                        <div class="skill-card-badge">DECK C</div>
+                        <h3 class="skill-category-title font-syne">Tools &amp; Kontrol</h3>
+                        <p class="skill-category-sub">Manajemen Kode &amp; Kolaborasi Tim</p>
+
+                        <div class="skill-pill-container">
+                            <div class="skill-pill">
+                                <span class="pill-dot gold"></span>
+                                <span class="pill-name">Git</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Skills Section -->
-      <section id="skills" class="skills section">
-        <div class="container">
-          <h2 class="section-title">
-            Keahlian & <span class="gradient-text">Teknologi</span>
-          </h2>
-          <div class="skills-grid">
-            <div class="skill-category glass-panel hover-glow">
-              <h3>Frontend & UI/UX</h3>
-              <ul class="skill-list">
-                <li><span class="skill-dot"></span> React</li>
-                <li><span class="skill-dot"></span> Next.js</li>
-                <li><span class="skill-dot"></span> Tailwind CSS</li>
-                <li><span class="skill-dot"></span> Figma</li>
-              </ul>
+
+        <!-- ================= PROJECTS SECTION ================= -->
+        <section id="projects" class="section-container">
+            <div class="container">
+                <div class="section-header-retro">
+                    <span class="header-chapter">[ ARSIP 03 ]</span>
+                    <h2 class="section-heading font-syne">Proyek <span class="gold-gradient-text">Unggulan</span></h2>
+                    <div class="retro-line-deco"><span class="line-spark">✦</span></div>
+                </div>
+
+                <!-- Showcase Proyek: Sistem Manajemen Perpustakaan -->
+                <div class="retro-project-showcase">
+                    
+                    <div class="project-ticket-header">
+                        <div class="ticket-stamp">CASE STUDY // 01</div>
+                        <div class="ticket-status"><span class="live-dot"></span> FULL-STACK DEPLOYMENT</div>
+                    </div>
+
+                    <div class="project-body-grid">
+                        
+                        <div class="project-meta-col">
+                            <h3 class="project-name font-syne">Sistem Manajemen Perpustakaan</h3>
+                            <p class="project-tagline">Solusi digital terpusat untuk otomatisasi pencatatan peminjaman buku dan inventarisasi perpustakaan.</p>
+
+                            <div class="project-meta-rows">
+                                <div class="meta-row">
+                                    <span class="meta-label">PERAN SAYA:</span>
+                                    <span class="meta-val text-gold">Full-Stack Developer &amp; UI/UX Designer</span>
+                                </div>
+                                <div class="meta-row">
+                                    <span class="meta-label">TEKNOLOGI:</span>
+                                    <span class="meta-val">Next.js &bull; Node.js &bull; Express</span>
+                                </div>
+                                <div class="meta-row">
+                                    <span class="meta-label">STATUS HASIL:</span>
+                                    <span class="meta-val text-crimson">[Belum diisi]</span>
+                                </div>
+                            </div>
+
+                            <div class="project-links-row">
+                                <a href="https://github.com/extraa18" target="_blank" rel="noopener noreferrer" class="btn btn-retro-small btn-crimson-bg">
+                                    <span>GitHub Repo [Belum diisi link repo]</span>
+                                </a>
+                                <span class="btn btn-retro-small btn-disabled">
+                                    <span>Live Demo [Belum diisi]</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="project-details-col">
+                            
+                            <!-- Problem & Solution Box -->
+                            <div class="retro-info-panel panel-problem">
+                                <div class="panel-tag"><span class="tag-bullet">!</span> MASALAH YANG DIHADAPI</div>
+                                <p>Sulitnya melacak peminjaman buku dan mengelola inventaris yang sebelumnya dilakukan secara manual, memakan waktu lama, serta sangat rentan terhadap kesalahan pencatatan data fisik.</p>
+                            </div>
+
+                            <div class="retro-info-panel panel-solution">
+                                <div class="panel-tag"><span class="tag-bullet">✓</span> SOLUSI &amp; FITUR UTAMA</div>
+                                <p>Mengembangkan aplikasi web terintegrasi dengan otomatisasi pencatatan peminjaman secara *real-time*, pelacakan stok inventaris otomatis, serta antarmuka pengguna yang bersih dan mudah digunakan oleh staf maupun pengunjung.</p>
+                            </div>
+
+                            <!-- Proses Pengerjaan -->
+                            <div class="retro-info-panel panel-process">
+                                <div class="panel-tag"><span class="tag-bullet">⚙</span> PROSES PENGEMBANGAN</div>
+                                <p>Mulai dari perancangan antarmuka (UI/UX) di Figma, memetakan kebutuhan alur data, membangun arsitektur REST API di sisi Backend (Node.js/Express), hingga implementasi antarmuka interaktif di sisi Frontend (Next.js).</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Footer Kartu Tiket -->
+                    <div class="ticket-footer-strip">
+                        <span>SYS_ID: LIB-MGT-2026</span>
+                        <span class="strip-dots">&bull; &bull; &bull; &bull; &bull;</span>
+                        <span>D3 INFORMATIKA RESEARCH &amp; DEV</span>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="skill-category glass-panel hover-glow">
-              <h3>Backend</h3>
-              <ul class="skill-list">
-                <li><span class="skill-dot"></span> Node.js</li>
-                <li><span class="skill-dot"></span> Express</li>
-              </ul>
+        </section>
+
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section id="contact" class="section-container">
+            <div class="container">
+                <div class="section-header-retro">
+                    <span class="header-chapter">[ ARSIP 04 ]</span>
+                    <h2 class="section-heading font-syne">Mari <span class="gold-gradient-text">Berkolaborasi</span></h2>
+                    <div class="retro-line-deco"><span class="line-spark">✦</span></div>
+                </div>
+
+                <div class="contact-card-retro">
+                    <div class="card-corner corner-tl"></div>
+                    <div class="card-corner corner-tr"></div>
+                    <div class="card-corner corner-bl"></div>
+                    <div class="card-corner corner-br"></div>
+
+                    <div class="contact-intro">
+                        <h3 class="contact-tagline font-cinzel">SIAP MENGHADIRKAN SOLUSI DIGITAL BERSAMA ANDA</h3>
+                        <p class="contact-desc">
+                            Saya selalu terbuka untuk mendiskusikan peluang kerja, proyek pengembangan web *full-stack*, maupun eksplorasi ide produk baru. Silakan hubungi saya melalui jalur resmi di bawah ini:
+                        </p>
+                    </div>
+
+                    <div class="contact-directory-grid">
+                        
+                        <!-- Email -->
+                        <a href="mailto:liffxy720@gmail.com" class="directory-card">
+                            <div class="dir-icon-box">✉</div>
+                            <div class="dir-details">
+                                <span class="dir-type">SURAT ELEKTRONIK</span>
+                                <span class="dir-val text-gold">liffxy720@gmail.com</span>
+                            </div>
+                            <span class="dir-arrow">↗</span>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/alif-khaerul-siffa" target="_blank" rel="noopener noreferrer" class="directory-card">
+                            <div class="dir-icon-box">in</div>
+                            <div class="dir-details">
+                                <span class="dir-type">JARINGAN PROFESIONAL</span>
+                                <span class="dir-val text-gold">linkedin.com/in/alif-khaerul-siffa</span>
+                            </div>
+                            <span class="dir-arrow">↗</span>
+                        </a>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/extraa18" target="_blank" rel="noopener noreferrer" class="directory-card">
+                            <div class="dir-icon-box">⌥</div>
+                            <div class="dir-details">
+                                <span class="dir-type">REPOSITORI KODE</span>
+                                <span class="dir-val text-gold">github.com/extraa18</span>
+                            </div>
+                            <span class="dir-arrow">↗</span>
+                        </a>
+
+                    </div>
+                </div>
             </div>
-            <div class="skill-category glass-panel hover-glow">
-              <h3>Tools</h3>
-              <ul class="skill-list">
-                <li><span class="skill-dot"></span> Git</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Projects Section -->
-      <section id="projects" class="projects section">
-        <div class="container">
-          <h2 class="section-title">
-            Proyek <span class="gradient-text">Pilihan</span>
-          </h2>
-
-          <div class="project-card glass-panel hover-glow">
-            <div class="terminal-header">
-              <div class="dot dot-red"></div>
-              <div class="dot dot-yellow"></div>
-              <div class="dot dot-green"></div>
-            </div>
-            <div class="project-info">
-              <h3 class="project-title">Sistem Manajemen Perpustakaan</h3>
-              <p class="project-desc">
-                Aplikasi web terotomatisasi untuk mempermudah pelacakan
-                inventaris dan pencatatan peminjaman buku perpustakaan,
-                menggantikan sistem manual yang rentan kesalahan.
-              </p>
-
-              <div class="project-details">
-                <p>
-                  <strong>Fokus Saya:</strong> Merancang logika backend dan
-                  tampilan UI/UX (Full-Stack).
-                </p>
-              </div>
-
-              <div class="tech-stack">
-                <span class="tech-tag glass-tag">Next.js</span>
-                <span class="tech-tag glass-tag">Node.js</span>
-                <span class="tech-tag glass-tag">Express</span>
-              </div>
-
-              <div class="project-links">
-                <a href="#" class="btn btn-small btn-glass"
-                  >GitHub: [Belum diisi]</a
-                >
-                <a href="#" class="btn btn-small btn-primary">
-                  <span class="btn-content">Live Demo: [Belum diisi]</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section id="contact" class="contact section">
-        <div class="container">
-          <h2 class="section-title">
-            Mari <span class="gradient-text">Berkolaborasi</span>
-          </h2>
-          <p class="contact-text">
-            Saya selalu terbuka untuk mendiskusikan peluang kerja sama, diskusi
-            teknis, atau pengembangan produk. Jangan ragu untuk menyapa!
-          </p>
-
-          <div class="contact-links">
-            <a
-              href="mailto:liffxy720@gmail.com"
-              class="contact-item glass-panel hover-glow"
-            >
-              <span class="contact-label">Email</span>
-              <span class="contact-value">liffxy720@gmail.com</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/alif-khaerul-siffa"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="contact-item glass-panel hover-glow"
-            >
-              <span class="contact-label">LinkedIn</span>
-              <span class="contact-value">Alif Khaerul Siffa</span>
-            </a>
-            <a
-              href="https://github.com/extraa18"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="contact-item glass-panel hover-glow"
-            >
-              <span class="contact-label">GitHub</span>
-              <span class="contact-value">extraa18</span>
-            </a>
-          </div>
-        </div>
-      </section>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; 2026 Alif Khaerul Siffa. All rights reserved.</p>
-      </div>
+    <!-- Retro Footer -->
+    <footer class="retro-footer">
+        <div class="container footer-content">
+            <div class="footer-left font-space-mono">
+                <span class="footer-symbol">✦</span> 2026 &bull; ALIF KHAERUL SIFFA &bull; ALL RIGHTS RESERVED
+            </div>
+            <div class="footer-right font-space-mono">
+                DIBUAT DENGAN SEMANGAT RETRO ANALOG &bull; HTML, CSS, JS
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
