@@ -1,6 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
-    // 1. MENU MOBILE TOGGLE (RETRO BURGER)
+    // 1. TEMA: MODE GELAP & MODE TERANG (PERSISTENT DENGAN LOCALSTORAGE)
+    // =========================================================================
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('.theme-icon') : null;
+    const themeLabel = themeToggleBtn ? themeToggleBtn.querySelector('.theme-label') : null;
+
+    // Baca tema tersimpan atau default ke 'dark'
+    let currentTheme = localStorage.getItem('alif_portfolio_theme') || 'dark';
+
+    function applyTheme(theme) {
+        currentTheme = theme;
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('alif_portfolio_theme', theme);
+
+        if (themeIcon && themeLabel) {
+            if (theme === 'light') {
+                themeIcon.textContent = '☀';
+                themeLabel.textContent = 'TERANG';
+                themeToggleBtn.setAttribute('title', 'Beralih ke Mode Gelap');
+            } else {
+                themeIcon.textContent = '☾';
+                themeLabel.textContent = 'GELAP';
+                themeToggleBtn.setAttribute('title', 'Beralih ke Mode Terang');
+            }
+        }
+    }
+
+    // Terapkan tema saat halaman pertama kali dimuat
+    applyTheme(currentTheme);
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(nextTheme);
+        });
+    }
+
+    // =========================================================================
+    // 2. MENU MOBILE TOGGLE (RETRO BURGER)
     // =========================================================================
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -21,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // 2. SCROLL REVEAL HALUS
+    // 3. SCROLL REVEAL HALUS
     // =========================================================================
     const revealTargets = document.querySelectorAll('.retro-box-card, .skill-retro-card, .retro-project-showcase, .contact-card-retro');
     
@@ -45,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================================
-    // 3. RETRO GOLD & CRIMSON PARTICLES (EMBER & STARDUST CANVAS)
+    // 4. RETRO GOLD & CRIMSON PARTICLES (EMBER & STARDUST CANVAS)
     // =========================================================================
     const canvas = document.getElementById('particleCanvas');
     if (!canvas) return;
@@ -73,15 +111,26 @@ document.addEventListener('DOMContentLoaded', () => {
         mouse.y = -1000;
     });
 
-    // Pilihan Palet Partikel: Emas Keemasan, Crimson Merah, & Putih Berkilau
-    const retroColors = [
-        { r: 245, g: 158, b: 11, a: 0.85 },  // Warm Amber Gold
-        { r: 251, g: 191, b: 36, a: 0.9 },   // Bright Gold
-        { r: 254, g: 240, b: 138, a: 0.7 },  // Pale Starlight
-        { r: 220, g: 38,  b: 38, a: 0.8 },   // Crimson Ruby
-        { r: 239, g: 68,  b: 68, a: 0.75 },  // Radiant Red Spark
-        { r: 255, g: 253, b: 249, a: 0.9 }   // Pure Warm Cream
-    ];
+    // Palet Partikel Dinamis (Menyesuaikan Mode Gelap & Mode Terang)
+    function getParticleColors() {
+        if (currentTheme === 'light') {
+            return [
+                { r: 180, g: 83,  b: 9,   a: 0.75 }, // Antique Bronze
+                { r: 217, g: 119, b: 6,   a: 0.8  }, // Warm Amber Gold
+                { r: 185, g: 28,  b: 28,  a: 0.75 }, // Deep Crimson
+                { r: 220, g: 38,  b: 38,  a: 0.65 }, // Ruby Spark
+                { r: 120, g: 53,  b: 15,  a: 0.55 }  // Subtle Gold Earth
+            ];
+        }
+        return [
+            { r: 245, g: 158, b: 11,  a: 0.85 }, // Warm Amber Gold
+            { r: 251, g: 191, b: 36,  a: 0.9  }, // Bright Gold
+            { r: 254, g: 240, b: 138, a: 0.7  }, // Pale Starlight
+            { r: 220, g: 38,  b: 38,  a: 0.8  }, // Crimson Ruby
+            { r: 239, g: 68,  b: 68,  a: 0.75 }, // Radiant Red Spark
+            { r: 255, g: 253, b: 249, a: 0.9  }  // Pure Warm Cream
+        ];
+    }
 
     class RetroEmber {
         constructor() {
@@ -99,7 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
             this.speedX = (Math.random() - 0.5) * 0.35;
             
             // Efek kedip (twinkle)
-            this.colorData = retroColors[Math.floor(Math.random() * retroColors.length)];
+            const colors = getParticleColors();
+            this.colorData = colors[Math.floor(Math.random() * colors.length)];
             this.alpha = Math.random() * 0.7 + 0.2;
             this.twinkleSpeed = Math.random() * 0.02 + 0.005;
             this.twinkleDir = Math.random() > 0.5 ? 1 : -1;
@@ -175,9 +225,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < 85) {
-                    const lineAlpha = (1 - dist / 85) * 0.12;
+                    const lineAlpha = (1 - dist / 85) * (currentTheme === 'light' ? 0.08 : 0.12);
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(245, 158, 11, ${lineAlpha})`;
+                    ctx.strokeStyle = currentTheme === 'light' 
+                        ? `rgba(180, 83, 9, ${lineAlpha})` 
+                        : `rgba(245, 158, 11, ${lineAlpha})`;
                     ctx.lineWidth = 0.6;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);

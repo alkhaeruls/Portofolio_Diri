@@ -5,10 +5,19 @@
    ========================================================================== */
 
 :root {
-    /* Palet Warna Utama */
+    /* Palet Warna Utama (Mode Gelap - Default) */
     --bg-dark: #0a0405;           /* Hitam Beludru / Deep Crimson Black */
     --bg-surface: #140709;        /* Warna Permukaan Kartu */
     --bg-surface-elevated: #1e0b0e;
+    --header-bg: rgba(10, 4, 5, 0.85);
+    --footer-bg: #090304;
+    --ticket-header-bg: linear-gradient(90deg, #1f0b0e, #140709);
+    --ticket-footer-bg: #0f0506;
+    --btn-outline-bg: rgba(20, 7, 9, 0.7);
+    --pill-bg: rgba(10, 4, 5, 0.6);
+    --dir-card-bg: rgba(10, 4, 5, 0.8);
+    --meta-rows-bg: rgba(10, 4, 5, 0.7);
+    --mobile-nav-bg: rgba(14, 5, 7, 0.98);
 
     /* Aksen Emas & Kuning Keemasan */
     --gold-primary: #f59e0b;       /* Amber Gold Inti */
@@ -42,6 +51,48 @@
 
     /* Transisi */
     --ease-retro: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ==========================================================================
+   MODE TERANG (VINTAGE PARCHMENT & WARM CRIMSON GOLD)
+   ========================================================================== */
+[data-theme="light"] {
+    --bg-dark: #fbf6ec;           /* Kertas Vintage Krem Hangat / Warm Parchment */
+    --bg-surface: #ffffff;        /* Kartu Putih Bersih Bergaya Majalah */
+    --bg-surface-elevated: #f4edd9;
+    --header-bg: rgba(251, 246, 236, 0.92);
+    --footer-bg: #efe6d1;
+    --ticket-header-bg: linear-gradient(90deg, #f7efe0, #f1e5cf);
+    --ticket-footer-bg: #eae0c8;
+    --btn-outline-bg: rgba(255, 255, 255, 0.9);
+    --pill-bg: #f9f4ea;
+    --dir-card-bg: #ffffff;
+    --meta-rows-bg: #f7efe0;
+    --mobile-nav-bg: rgba(251, 246, 236, 0.98);
+
+    /* Aksen Emas & Kuning Keemasan untuk Mode Terang */
+    --gold-primary: #b45309;       /* Deep Bronze / Antique Amber */
+    --gold-light: #92400e;         /* Amber Kontras */
+    --gold-dark: #78350f;          /* Rich Bronze */
+    --gold-glow: rgba(180, 83, 9, 0.2);
+
+    /* Aksen Merah Crimson untuk Mode Terang */
+    --red-primary: #b91c1c;        /* Deep Crimson */
+    --red-light: #dc2626;          /* Ruby Red */
+    --red-dark: #7f1d1d;           /* Marun */
+    --red-glow: rgba(185, 28, 28, 0.2);
+
+    /* Teks & Kontras Mode Terang */
+    --text-white: #1c0d0f;         /* Tinta Gelap Retro */
+    --text-cream: #2a1619;         /* Teks Utama Hangat */
+    --text-muted: #6e585b;         /* Subteks Elegan */
+    --text-dim: #997e82;
+
+    /* Garis & Border Mode Terang */
+    --border-gold: rgba(180, 83, 9, 0.35);
+    --border-gold-bright: rgba(180, 83, 9, 0.7);
+    --border-red: rgba(185, 28, 28, 0.35);
+    --border-subtle: rgba(40, 18, 21, 0.12);
 }
 
 /* Reset & Pengaturan Dasar */
@@ -163,7 +214,7 @@ body.retro-theme {
     left: 0;
     width: 100%;
     z-index: 100;
-    background: rgba(10, 4, 5, 0.85);
+    background: var(--header-bg);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-gold);
@@ -209,6 +260,122 @@ body.retro-theme {
     color: var(--red-light);
     border-radius: 4px;
     letter-spacing: 0.08em;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.85rem;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid var(--border-gold);
+    border-radius: 5px;
+    color: var(--gold-light);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.25s var(--ease-retro);
+    box-shadow: 2px 2px 0px var(--border-red);
+}
+
+.theme-toggle-btn:hover {
+    background: var(--gold-primary);
+    color: #1a080a;
+    border-color: var(--gold-light);
+    box-shadow: 3px 3px 0px var(--red-primary), 0 0 14px var(--gold-glow);
+    transform: translate(-1px, -1px);
+}
+
+.theme-icon {
+    font-size: 0.85rem;
+    line-height: 1;
+}
+
+[data-theme="light"] .theme-toggle-btn {
+    background: #f4edd9;
+    color: var(--text-white);
+    border-color: var(--border-gold);
+    box-shadow: 2px 2px 0px var(--border-red);
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+    background: var(--gold-primary);
+    color: #ffffff;
+}
+
+[data-theme="light"] .ambient-glow {
+    opacity: 0.08;
+}
+
+[data-theme="light"] .btn-gold-retro {
+    background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 50%, #b45309 100%);
+    color: #1a080a;
+    box-shadow: 4px 4px 0px var(--red-primary), 0 0 20px rgba(245, 158, 11, 0.25);
+}
+
+[data-theme="light"] .btn-gold-retro:hover {
+    box-shadow: 6px 6px 0px var(--red-dark);
+}
+
+[data-theme="light"] .retro-stamp {
+    background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+    color: #fef3c7;
+    border-color: #fef3c7;
+}
+
+[data-theme="light"] .btn-disabled {
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--text-dim);
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.btn-nav-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 1.1rem;
+    background: rgba(220, 38, 38, 0.15);
+    border: 1px solid var(--border-gold);
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.25s var(--ease-retro);
+    box-shadow: 2px 2px 0px var(--red-dark);
+}
+
+.btn-nav-cv:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+    color: #1a080a;
+    border-color: var(--gold-light);
+    box-shadow: 3px 3px 0px var(--red-primary), 0 0 16px var(--gold-glow);
+    transform: translate(-1px, -1px);
+}
+
+.btn-nav-cv .cv-arrow {
+    color: var(--gold-primary);
+    transition: transform 0.2s ease, color 0.2s ease;
+    font-size: 0.85rem;
+}
+
+.btn-nav-cv:hover .cv-arrow {
+    color: #1a080a;
+    transform: translateY(2px);
+}
+
+.mobile-cv-wrapper {
+    display: none;
 }
 
 .nav-links {
@@ -529,7 +696,7 @@ body.retro-theme {
 }
 
 .btn-crimson-outline {
-    background: rgba(20, 7, 9, 0.7);
+    background: var(--btn-outline-bg);
     color: var(--text-white);
     border: 1px solid var(--border-gold);
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.6);
@@ -797,7 +964,7 @@ body.retro-theme {
     align-items: center;
     gap: 0.9rem;
     padding: 0.8rem 1.1rem;
-    background: rgba(10, 4, 5, 0.6);
+    background: var(--pill-bg);
     border: 1px solid var(--border-subtle);
     border-radius: 6px;
     transition: all 0.25s ease;
@@ -840,7 +1007,7 @@ body.retro-theme {
     justify-content: space-between;
     align-items: center;
     padding: 1.25rem 2.5rem;
-    background: linear-gradient(90deg, #1f0b0e, #140709);
+    background: var(--ticket-header-bg);
     border-bottom: 1px dashed var(--border-gold);
 }
 
@@ -896,7 +1063,7 @@ body.retro-theme {
     gap: 1.1rem;
     margin-bottom: 2.5rem;
     padding: 1.5rem;
-    background: rgba(10, 4, 5, 0.7);
+    background: var(--meta-rows-bg);
     border: 1px solid var(--border-subtle);
     border-radius: 8px;
 }
@@ -960,7 +1127,7 @@ body.retro-theme {
 
 .retro-info-panel {
     padding: 1.5rem;
-    background: rgba(10, 4, 5, 0.7);
+    background: var(--meta-rows-bg);
     border-radius: 8px;
     border: 1px solid var(--border-subtle);
 }
@@ -996,7 +1163,7 @@ body.retro-theme {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2.5rem;
-    background: #0f0506;
+    background: var(--ticket-footer-bg);
     border-top: 1px dashed var(--border-gold);
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -1049,7 +1216,7 @@ body.retro-theme {
     align-items: center;
     gap: 1.25rem;
     padding: 1.5rem;
-    background: rgba(10, 4, 5, 0.8);
+    background: var(--dir-card-bg);
     border: 1px solid var(--border-subtle);
     border-radius: 8px;
     text-decoration: none;
@@ -1112,7 +1279,7 @@ body.retro-theme {
 .retro-footer {
     padding: 2.5rem 0;
     border-top: 1px solid var(--border-gold);
-    background: #090304;
+    background: var(--footer-bg);
     position: relative;
     z-index: 2;
 }
@@ -1195,7 +1362,7 @@ body.retro-theme {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(14, 5, 7, 0.98);
+        background: var(--mobile-nav-bg);
         border-bottom: 1px solid var(--border-gold);
         flex-direction: column;
         padding: 2rem;
@@ -1205,6 +1372,39 @@ body.retro-theme {
 
     .nav-links.active {
         display: flex;
+    }
+
+    .btn-nav-cv {
+        display: none;
+    }
+
+    .mobile-cv-wrapper {
+        display: block;
+        margin-top: 0.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px dashed var(--border-gold);
+    }
+
+    .btn-cv-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.5rem;
+        background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+        color: #1a080a;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        font-weight: 700;
+        border-radius: 6px;
+        text-decoration: none;
+        box-shadow: 3px 3px 0px var(--red-primary);
+        letter-spacing: 0.05em;
+    }
+
+    .btn-cv-mobile:hover {
+        background: var(--gold-light);
+        color: #000;
     }
 
     .portrait-container {
